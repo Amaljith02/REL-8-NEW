@@ -5998,6 +5998,9 @@
   }
 }
 @media screen and (max-width: 450px) {
+  .fifth_page_card_3 {
+    margin-top: -20px;
+  }
   .nine_page_slider_sec_img {
     width: 80%;
   }
