@@ -5379,9 +5379,13 @@
     letter-spacing: 0.5px;
   }
   .nine_page_menu_btn_sec {
-    margin: 10px 0;
+    margin: 10px auto;
     gap: 0px;
+    width: 70%;
+    overflow-x: scroll;
+    position: relative;
   }
+
   .nine_page_menu_btn {
     padding: 6px 10px;
     font-size: 13px;
