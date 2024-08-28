@@ -8,6 +8,7 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "@fontsource/metropolis";
+import "@fontsource/metropolis/400.css";
 import "react-tabs/style/react-tabs.css";
 
 // import required modules

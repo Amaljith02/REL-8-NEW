@@ -328,7 +328,7 @@
   position: absolute;
   left: 25px;
   font-size: 58px;
-  font-weight: 800;
+  font-weight: 600;
 }
 .third_page_request_demo_btn {
   padding: 20px 40px;
@@ -464,7 +464,7 @@
 }
 .fifth_page_card_1_content > h4 {
   font-size: 52px;
-  font-weight: 800;
+  font-weight: 500;
 }
 .fifth_page_card_1_content > h4 > span {
   font-weight: 100;
@@ -545,7 +545,7 @@
 }
 .fifth_page_card_2_content > h4 {
   font-size: 52px;
-  font-weight: 800;
+  font-weight: 500;
 }
 .fifth_page_card_2_content > h4 > span {
   font-weight: 100;
@@ -625,7 +625,7 @@
 }
 .fifth_page_card_3_content > h4 {
   font-size: 30px;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 40px;
 }
 .fifth_page_card_3_content > h4 > span {
@@ -698,7 +698,7 @@
   font-weight: 300;
 }
 .sixth_page_text_content > h4 > span {
-  font-weight: 800;
+  font-weight: 600;
   color: #893bf7;
 }
 .sixth_page_text_content > h5 {
@@ -1327,7 +1327,7 @@
 }
 
 .p12_page_text_content > h3 > span {
-  font-weight: 800;
+  font-weight: 600;
 }
 .p12_page_text_content > p {
   width: 800px;
@@ -2007,7 +2007,7 @@
 .p17_bolg_and_news_page_card > h3 {
   font-size: 36px;
   line-height: 40px;
-  font-weight: 800;
+  font-weight: 600;
   width: 90%;
 }
 
