@@ -1029,11 +1029,12 @@
 }
 .nine_page_menu_btn_sec {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 10px;
   gap: 30px;
-  padding: 4px;
+  list-style: none;
+  padding: 5px;
   border-radius: 50px;
   background-color: #fff7da;
 }
@@ -1048,16 +1049,17 @@
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
 }
-.nine_page_menu_btn_sec > button:focus {
-  background-color: #fdc500;
-  color: white;
+.nine_page_menu_btn:focus-visible {
+  border: 0 !important;
+  outline: none !important;
 }
-
 .nine_page_slider_sec {
   width: 100%;
 }
 .nine_page_slider_sec_img {
   height: auto;
+  padding-top: 30px;
+
   max-width: 1200px;
   width: 90%;
   object-fit: cover;
@@ -1731,7 +1733,7 @@
   /* background-color: red; */
   width: 50%;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
   list-style: none;
 }
 .p15_page_faq_sec_list_sec > li {
@@ -5768,7 +5770,7 @@
   }
   .p15_page_container {
     gap: 10px;
-}
+  }
   .p15_page_container_card_sec {
     width: 100%;
     padding: 10px;

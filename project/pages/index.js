@@ -1,19 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ScrollTrigger from "react-scroll-trigger";
+import CountUp from "react-countup";
 import style from "@/styles/Home.module.css";
-import "@fontsource/metropolis"; 
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import CountUp from "react-countup";
-import ScrollTrigger from "react-scroll-trigger";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
+import "@fontsource/metropolis";
+import "react-tabs/style/react-tabs.css";
 
 // import required modules
 
@@ -24,8 +19,23 @@ import {
   Scrollbar,
   EffectCreative,
   FreeMode,
-  Thumbs,
 } from "swiper/modules";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from "react-accessible-accordion";
+import "react-accessible-accordion/dist/fancy-example.css";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
 import Link from "next/link";
 
 //https://www.figma.com/design/dh4zh8M6NPPQtohPO1q8Iy/Untitled?t=n6HVFd8jjuGHEvQ3-0
@@ -34,14 +44,16 @@ const Index = () => {
   ////
   useEffect(() => {
     AOS.init({
-      delay: "600",
-      duration: "1400",
+      delay: "100",
+      duration: "1000",
     });
   }, []);
 
+  // -------Count Up --------
   const [countUp, setCountup] = useState(false);
 
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  // -------Tabs--------
+  const [tabIndex, setTabIndex] = useState(0);
 
   return (
     <div className={style.main_body}>
@@ -790,7 +802,7 @@ const Index = () => {
           <span>With Our Feature-Packed Software.</span>
         </h3>
 
-        <div className={` ${style.nine_page_menu_btn_sec} `}>
+        {/* <div className={` ${style.nine_page_menu_btn_sec} `}>
           <button className={` ${style.nine_page_menu_btn}  `}>
             Dashboard
           </button>
@@ -844,89 +856,77 @@ const Index = () => {
               />
             </div>
           </SwiperSlide>
-        </Swiper>
-        {/* <Swiper
-        style={{
-          '--swiper-navigation-color': '#fff',
-          '--swiper-pagination-color': '#fff',
-        }}
-        spaceBetween={10}
-        navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
-      >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-        </SwiperSlide>
-      </Swiper>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-        </SwiperSlide>
-      </Swiper> */}
+        </Swiper> */}
+
+        <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+          <TabList className={` ${style.nine_page_menu_btn_sec} `}>
+            <Tab className={` ${style.nine_page_menu_btn}  `}>Dashboard</Tab>
+            <Tab className={` ${style.nine_page_menu_btn}  `}>Dashboard</Tab>
+            <Tab className={` ${style.nine_page_menu_btn}  `}>Dashboard</Tab>
+            <Tab className={` ${style.nine_page_menu_btn}  `}>Dashboard</Tab>
+            <Tab className={` ${style.nine_page_menu_btn}  `}>Dashboard</Tab>
+          </TabList>
+          <TabPanel>
+            <div className={style.nine_page_slider_sec_img}>
+              <Image
+                src={"/images/dashboard.png"}
+                width={1200}
+                height={780}
+                alt=""
+                data-aos="fade-up"
+              />
+            </div>
+          </TabPanel>
+
+          <TabPanel>
+            <div className={style.nine_page_slider_sec_img}>
+              <Image
+                src={"/images/dashboard.png"}
+                width={1200}
+                height={780}
+                alt=""
+                data-aos="fade-up"
+              />
+            </div>
+          </TabPanel>
+
+          <TabPanel>
+            <div className={style.nine_page_slider_sec_img}>
+              <Image
+                src={"/images/dashboard.png"}
+                width={1200}
+                height={780}
+                alt=""
+                data-aos="fade-up"
+              />
+            </div>
+          </TabPanel>
+
+          <TabPanel>
+            <div className={style.nine_page_slider_sec_img}>
+              <Image
+                src={"/images/dashboard.png"}
+                width={1200}
+                height={780}
+                alt=""
+                data-aos="fade-up"
+              />
+            </div>
+          </TabPanel>
+
+          <TabPanel>
+            <div className={style.nine_page_slider_sec_img}>
+              <Image
+                src={"/images/banner.png"}
+                width={1200}
+                height={780}
+                alt=""
+                data-aos="fade-up"
+              />
+            </div>
+          </TabPanel>
+        </Tabs>
+
         <h4>
           Our Dashboard includes many widgets containing information &apos;s
           about the whole organization of yours. it includes quick view of leave
@@ -1777,7 +1777,7 @@ const Index = () => {
                 CONTACT US
               </Link>
             </div>
-            <ul className={style.p15_page_faq_sec_list_sec}>
+            {/* <ul className={style.p15_page_faq_sec_list_sec}>
               <li>
                 <span>
                   How does the software help increase productivity?{" "}
@@ -1838,7 +1838,57 @@ const Index = () => {
                   identify areas for improvement.
                 </p>
               </li>
-            </ul>
+            </ul> */}
+            <Accordion className={style.p15_page_faq_sec_list_sec}>
+              <AccordionItem>
+                <AccordionItemHeading>
+                  <AccordionItemButton>
+                    How does the software helpe weuiwurhewriuhu weriuwerhiewu
+                    increase productivity?{" "}
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                  <p>
+                    Yes, the software provides reporting and analytics
+                    capabilities to measure the effectiveness of the employees
+                    and identify areas for improvement. Yes, the software
+                    provides reporting and analytics capabilities to measure the
+                    effectiveness of the employees and identify areas for
+                    improvement. Yes, the software provides reporting and
+                    analytics capabilities to measure the effectiveness of the
+                    employees and identify areas for improvement.
+                  </p>
+                </AccordionItemPanel>
+              </AccordionItem>
+              <AccordionItem>
+                <AccordionItemHeading>
+                  <AccordionItemButton>
+                    How does the software help increase productivity?{" "}
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                  <p>
+                    Yes, the software provides reporting and analytics
+                    capabilities to measure the effectiveness of the employees
+                    and identify areas for improvement.
+                  </p>
+                </AccordionItemPanel>
+              </AccordionItem>
+              <AccordionItem>
+                <AccordionItemHeading>
+                  <AccordionItemButton>
+                    How does the software help increase productivity?{" "}
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                  <p>
+                    Yes, the software provides reporting and analytics
+                    capabilities to measure the effectiveness of the employees
+                    and identify areas for improvement.
+                  </p>
+                </AccordionItemPanel>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </div>
