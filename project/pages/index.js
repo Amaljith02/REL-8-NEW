@@ -1,17 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
 import style from "@/styles/Home.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "@fontsource/metropolis";
 import "@fontsource/metropolis/400.css";
 import "react-tabs/style/react-tabs.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import ScrollTriggerReact from "react-scroll-trigger";
 
-// import required modules
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 import {
   Pagination,
@@ -30,32 +38,59 @@ import {
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-
-import Link from "next/link";
-
 //https://www.figma.com/design/dh4zh8M6NPPQtohPO1q8Iy/Untitled?t=n6HVFd8jjuGHEvQ3-0
 
 const Index = () => {
+  console.log("GSAP:", gsap);
+  console.log("ScrollTrigger:", ScrollTrigger);
+
   ////
-  useEffect(() => {
-    AOS.init({
-      delay: "100",
-      duration: "1000",
-    });
-  }, []);
 
   // -------Count Up --------
   const [countUp, setCountup] = useState(false);
 
   // -------Tabs--------
   const [tabIndex, setTabIndex] = useState(0);
+  /////////////
 
+  useEffect(() => {
+    AOS.init({
+      delay: "100",
+      duration: "1000",
+    });
+
+    /////////////
+
+    // gsap.registerPlugin(ScrollTrigger);
+
+    // let tl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".container-gsap",
+    //     pin: true,
+    //     scrub: true,
+    //     end: "+=100%",
+    //     markers: true,
+    //   },
+    // });
+
+    // let panels = gsap.utils.toArray(".panel-gsap");
+    // console.log(panels);
+
+    // panels.forEach((panel, i) => {
+    //   if (!i) {
+    //     tl.set({}, {}, 0.5);
+    //   } else {
+    //     tl.to(
+    //       panel,
+    //       {
+    //         yPercent: -100,
+    //         ease: "none",
+    //       },
+    //       "+=1"
+    //     );
+    //   }
+    // });
+  }, []);
   return (
     <div className={style.main_body}>
       {/* ///// */}
@@ -211,7 +246,7 @@ const Index = () => {
           <h4>
             An intuitive & Powerful HR software solution for your business
           </h4>
-          <ScrollTrigger
+          <ScrollTriggerReact
             onEnter={() => setCountup(true)}
             onExit={() => setCountup(false)}
             className={style.third_page_counting_sec}
@@ -267,7 +302,7 @@ const Index = () => {
               </div>
               Industries Served
             </div>
-          </ScrollTrigger>
+          </ScrollTriggerReact>
           <Link href={"/"} className={style.third_page_request_demo_btn}>
             REQUEST A DEMO
           </Link>
@@ -362,6 +397,26 @@ const Index = () => {
       </div>
 
       {/* /// */}
+
+      {/* <div class="container-gsap">
+        <div class="description panel-gsap blue">
+          <div>
+            <h1>Layered pinning</h1>
+            <p>
+              Use pinning to layer panel-gsaps on top of each other as you
+              scroll.
+            </p>
+            <div class="scroll-down">
+              Scroll down<div class="arrow"></div>
+            </div>
+          </div>
+        </div>
+
+        <section class="panel-gsap red">ONE</section>
+        <section class="panel-gsap orange">TWO</section>
+        <section class="panel-gsap purple">THREE</section>
+        <section class="panel-gsap green">FOUR</section>
+      </div> */}
 
       <div className={` ${style.fifth_page} `}>
         <div className={` ${style.fifth_page_card_1} `}>
@@ -882,7 +937,7 @@ const Index = () => {
           <TabPanel>
             <div className={style.nine_page_slider_sec_img}>
               <Image
-                src={"/images/dashboard.png"}
+                src={"/images/mobile_background (1).png"}
                 width={1200}
                 height={780}
                 alt=""
@@ -906,7 +961,7 @@ const Index = () => {
           <TabPanel>
             <div className={style.nine_page_slider_sec_img}>
               <Image
-                src={"/images/dashboard.png"}
+                src={"/images/gradient_back.png"}
                 width={1200}
                 height={780}
                 alt=""
@@ -1710,7 +1765,7 @@ const Index = () => {
           <h3>
             What’s Our <b> Customers Experience</b>
           </h3>
-          <ScrollTrigger
+          <ScrollTriggerReact
             onEnter={() => setCountup(true)}
             onExit={() => setCountup(false)}
             className={style.p15_page_container_card_sec}
@@ -1760,7 +1815,7 @@ const Index = () => {
               Efficiency of Team{" "}
             </div>
             {/* </div> */}
-          </ScrollTrigger>
+          </ScrollTriggerReact>
           <div className={` ${style.p15_page_faq_sec} `}>
             <div className={` ${style.p15_page_faq_sec_title} `}>
               <h3>
